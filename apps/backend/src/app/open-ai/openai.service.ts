@@ -8,6 +8,8 @@ export class OpenAiService {
 
   constructor(private readonly configService: ConfigService) {
     const apiKey = this.configService.get<string>('OPENAI_API_KEY');
+    //process.env.OPENAI_API_KEY;
+    console.log('process.env.OPENAI_API_KEY', apiKey);
 
     this._openApiClient = new OpenAI({
       apiKey: apiKey,
@@ -15,8 +17,9 @@ export class OpenAiService {
   }
 
   async generateResponse(prompt: string): Promise<string> {
+    console.log(this._openApiClient.beta);
     const completion = await this._openApiClient.chat.completions.create({
-      model: 'gpt-3.5-turbo',
+      model: 'gpt-4o',
       messages: [
         {
           role: 'system',

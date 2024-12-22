@@ -1,7 +1,7 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
 # Environment variables
-apps/backend/.env
+*.env
 
 # dotenv environment variables file
 .env.local
